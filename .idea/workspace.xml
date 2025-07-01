@@ -4,15 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="22d299d3-0b3c-4848-bf57-40b37a13a0af" name="Changes" comment="修改.gitignore">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="22d299d3-0b3c-4848-bf57-40b37a13a0af" name="Changes" comment="feat: add data file">
+      <change afterPath="$PROJECT_DIR$/sky-pojo/src/main/java/com/hubu/entity/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sky-service/src/main/java/com/hubu/mapper/UserMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sky-service/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -41,7 +50,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "jdk.selected.JAVA_MODULE": "17",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Project/springboot/sky-take-out",
+    "last_opened_file_path": "D:/Project/springboot/sky-take-out/data",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -53,8 +62,18 @@
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "preferences.lookFeel",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Project\springboot\sky-take-out\data" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -65,7 +84,7 @@
       <updated>1751113764332</updated>
       <workItem from="1751113765369" duration="3549000" />
       <workItem from="1751262004898" duration="2677000" />
-      <workItem from="1751291144698" duration="4836000" />
+      <workItem from="1751291144698" duration="7942000" />
     </task>
     <task id="LOCAL-00001" summary="init:初始化项目">
       <option name="closed" value="true" />
@@ -107,7 +126,15 @@
       <option name="project" value="LOCAL" />
       <updated>1751296543532</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="feat: add data file">
+      <option name="closed" value="true" />
+      <created>1751297288294</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1751297288294</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -141,7 +168,8 @@
     <MESSAGE value="完成pom文件的修改" />
     <MESSAGE value="项目目录搭建" />
     <MESSAGE value="修改.gitignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改.gitignore" />
+    <MESSAGE value="feat: add data file" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add data file" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
