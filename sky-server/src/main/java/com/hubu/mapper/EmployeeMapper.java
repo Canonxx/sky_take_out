@@ -10,5 +10,10 @@ import com.hubu.entity.Employee;
 import java.util.List;
 
 public interface EmployeeMapper {
-    List<Employee> findEmployee(String username);
+    /**
+     * 通过员工姓名查找员工
+     * @param username
+     * @return
+     */
+    Employee findEmployeeByUserName(String username);
 }

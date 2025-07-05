@@ -3,7 +3,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.hubu.mapper.EmployeeMapper">
 <!--    List<Employee> findEmployee(String username);-->
-    <select id="findEmployee" resultType="employee">
+    <select id="findEmployeeByUserName" resultType="employee">
         select *
         from employee
         where username = #{username}

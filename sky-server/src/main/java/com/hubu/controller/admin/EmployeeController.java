@@ -5,8 +5,10 @@ package com.hubu.controller.admin;/*
  * @VERSON:1.8
  */
 
+import com.hubu.constant.MessageConstant;
 import com.hubu.dto.EmployeeLoginDTO;
 import com.hubu.entity.Employee;
+import com.hubu.exception.AccountLockedException;
 import com.hubu.service.admin.EmployeeService;
 import lombok.extern.slf4j.Slf4j;
 import lombok.val;
@@ -26,10 +28,11 @@ public class EmployeeController {
      */
     @PostMapping("/login")
     public String login(@RequestBody EmployeeLoginDTO employeeLoginDTO){
-        List<Employee> employeeList = employeeService.findEmployee(employeeLoginDTO.getUsername());
-        for(Employee employee:employeeList){
-            log.info("employee:{}", employee.getName());
-        }
+        Employee employee = employeeService.login(employeeLoginDTO);
         return "ok";
+    }
+    @GetMapping("test/login")
+    public void testLogin(){
+        throw new AccountLockedException(MessageConstant.ACCOUNT_LOCKED);
     }
 }

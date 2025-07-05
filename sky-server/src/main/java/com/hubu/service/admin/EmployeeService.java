@@ -5,15 +5,16 @@ package com.hubu.service.admin;/*
  * @VERSON:1.8
  */
 
+import com.hubu.dto.EmployeeLoginDTO;
 import com.hubu.entity.Employee;
 
 import java.util.List;
 
 public interface EmployeeService {
     /**
-     *
-     * @param username
+     * 员工登录
+     * @param employeeLoginDTO
      * @return
      */
-    List<Employee> findEmployee(String username);
+    Employee login(EmployeeLoginDTO employeeLoginDTO);
 }
