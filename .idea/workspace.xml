@@ -5,19 +5,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="22d299d3-0b3c-4848-bf57-40b37a13a0af" name="Changes" comment="feat: 登录策略模式实现">
-      <change afterPath="$PROJECT_DIR$/sky-common/src/main/java/com/hubu/constant/LoginStatusConstant.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sky-common/src/main/java/com/hubu/constant/MessageConstant.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sky-common/src/main/java/com/hubu/exception/AccountLockedException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sky-common/src/main/java/com/hubu/exception/AccountNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sky-common/src/main/java/com/hubu/exception/BaseException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sky-common/src/main/java/com/hubu/exception/PasswordErrorException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sky-common/src/main/java/com/hubu/result/Result.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/handler/GlobalExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sky-common/src/main/java/com/hubu/constant/JwtClaimsConstant.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sky-common/src/main/java/com/hubu/constant/PasswordConstant.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sky-common/src/main/java/com/hubu/context/BaseContext.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sky-common/src/main/java/com/hubu/json/JacksonObjectMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sky-common/src/main/java/com/hubu/properties/JwtProperties.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sky-common/src/main/java/com/hubu/utils/JwtUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sky-pojo/src/main/java/com/hubu/dto/EmployeeDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sky-pojo/src/main/java/com/hubu/dto/EmployeePageQueryDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sky-pojo/src/main/java/com/hubu/vo/EmployeeLoginVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sky-pojo/src/main/java/com/hubu/vo/PageResultVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/config/WebMvcConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/interceptor/JwtTokenAdminInterceptor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-common/src/main/java/com/hubu/constant/LoginStatusConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-common/src/main/java/com/hubu/constant/LoginStatusConstant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-common/src/main/java/com/hubu/result/Result.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-common/src/main/java/com/hubu/result/Result.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-pojo/src/main/java/com/hubu/dto/EmployeeLoginDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-pojo/src/main/java/com/hubu/dto/EmployeeLoginDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-pojo/src/main/java/com/hubu/entity/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-pojo/src/main/java/com/hubu/entity/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/controller/admin/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/controller/admin/EmployeeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/handler/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/handler/GlobalExceptionHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/mapper/EmployeeMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/mapper/EmployeeMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/service/admin/EmployeeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/service/admin/EmployeeService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/service/admin/impl/EmployeeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/service/admin/impl/EmployeeServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/strategy/LoginStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/strategy/LoginStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/strategy/context/LoginStrategyContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/strategy/context/LoginStrategyContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/strategy/impl/AccountLoginStrategyImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/strategy/impl/AccountLoginStrategyImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sky-server/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sky-server/src/main/resources/mapper/EmployeeMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/resources/mapper/EmployeeMapper.xml" afterDir="false" />
     </list>
@@ -62,13 +75,15 @@
     "JUnit.ExceptionTest.globalExceptionHander.executor": "Run",
     "JUnit.ExceptionTest.test.executor": "Run",
     "JUnit.LoginStrategyContextTest.strategytest.executor": "Run",
+    "JUnit.Test.test.executor": "Run",
+    "Maven.sky-take-out [compile].executor": "Run",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Spring Boot.SkyApplication.executor": "Run",
+    "Spring Boot.SkyApplication.executor": "Debug",
     "jdk.selected.JAVA_MODULE": "17",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "D:/Project/springboot/sky-take-out/data",
@@ -147,6 +162,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Test.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="sky-server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.hubu.common.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.hubu.common" />
+      <option name="MAIN_CLASS_NAME" value="com.hubu.common.Test" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="SkyApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="sky-server" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.hubu.SkyApplication" />
@@ -165,6 +196,7 @@
         <item itemvalue="Spring Boot.SkyApplication" />
         <item itemvalue="JUnit.ExceptionTest.globalExceptionHander" />
         <item itemvalue="JUnit.ExceptionTest.test" />
+        <item itemvalue="JUnit.Test.test" />
         <item itemvalue="JUnit.LoginStrategyContextTest.strategytest" />
       </list>
     </recent_temporary>
@@ -180,7 +212,13 @@
       <workItem from="1751113765369" duration="3549000" />
       <workItem from="1751262004898" duration="2677000" />
       <workItem from="1751291144698" duration="39027000" />
-      <workItem from="1751529506074" duration="20048000" />
+      <workItem from="1751529506074" duration="28772000" />
+      <workItem from="1757743369031" duration="6242000" />
+      <workItem from="1758777112041" duration="17432000" />
+      <workItem from="1758893006067" duration="31200000" />
+      <workItem from="1759225199047" duration="4439000" />
+      <workItem from="1759926334691" duration="4194000" />
+      <workItem from="1759976300661" duration="44383000" />
     </task>
     <task id="LOCAL-00001" summary="init:初始化项目">
       <option name="closed" value="true" />
@@ -246,7 +284,15 @@
       <option name="project" value="LOCAL" />
       <updated>1751551820498</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="feat: 登录策略模式实现">
+      <option name="closed" value="true" />
+      <created>1751730739684</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1751730739684</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -5,7 +5,10 @@ package com.hubu.mapper;/*
  * @VERSON:1.8
  */
 
+import com.github.pagehelper.Page;
+import com.hubu.dto.EmployeePageQueryDTO;
 import com.hubu.entity.Employee;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -16,4 +19,12 @@ public interface EmployeeMapper {
      * @return
      */
     Employee findEmployeeByUserName(String username);
+
+    void insert(Employee employee);
+
+    Page<Employee> pageQuery(EmployeePageQueryDTO employeePageQueryDTO);
+
+    void update(Employee employee);
+
+    Employee findById(Long id);
 }

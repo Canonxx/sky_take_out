@@ -12,6 +12,6 @@ public final class LoginStatusConstant {
     //明确声明禁止实例化
     private LoginStatusConstant(){}
     // 开启或禁用
-    public static final Integer enable = 1;
-    public static final Integer disable = 0;
+    public static final Integer ENABLE = 1;
+    public static final Integer DISABLE = 0;
 }

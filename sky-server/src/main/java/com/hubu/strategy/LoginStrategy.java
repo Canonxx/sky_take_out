@@ -5,6 +5,9 @@ package com.hubu.strategy;/*
  * @VERSON:1.8
  */
 
+import com.hubu.dto.EmployeeLoginDTO;
+import com.hubu.entity.Employee;
+
 public interface LoginStrategy {
-    String login(String data);
+    Employee login(EmployeeLoginDTO employeeLoginDTO);
 }

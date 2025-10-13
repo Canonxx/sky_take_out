@@ -5,6 +5,8 @@ package com.hubu.strategy.context;/*
  * @VERSON:1.8
  */
 
+import com.hubu.dto.EmployeeLoginDTO;
+import com.hubu.entity.Employee;
 import com.hubu.enumeration.LoginTypeEnum;
 import com.hubu.strategy.LoginStrategy;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,12 +21,11 @@ public class LoginStrategyContext {
 
     /**
      * 执行登录策略
-     * @param data
+     * @param employeeLoginDTO
      * @param loginTypeEnum
      * @return
      */
-    public String executeLoginStrategy(String data, LoginTypeEnum loginTypeEnum){
-        String login = loginStrategyMap.get(loginTypeEnum.getStrategy()).login(data);
-        return login;
+    public Employee executeLoginStrategy(EmployeeLoginDTO employeeLoginDTO, LoginTypeEnum loginTypeEnum){
+        return loginStrategyMap.get(loginTypeEnum.getStrategy()).login(employeeLoginDTO);
     }
 }

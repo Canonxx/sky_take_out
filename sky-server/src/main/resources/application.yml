@@ -1,5 +1,12 @@
 server:
   port: 8080
+  servlet:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+    tomcat:
+      uri-encoding: UTF-8
 
 spring:
   profiles:
@@ -20,25 +27,26 @@ spring:
       port: 6379
       password: 123456
       timeout: 3000ms
+  web:
+    locale: zh_CN
+    locale-resolver: fixed
 
 # knife4j配置
 springdoc:
+  api-docs:
+    path: /v3/api-docs   # 这里必须与上面能 200 返回的路径完全一致
   swagger-ui:
     path: /swagger-ui.html
-    tags-sorter: alpha
-    operations-sorter: alpha
-  api-docs:
-    path: /v3/api-docs
   group-configs:
-    - group: "default"
-      paths-to-match: "/**"
-      packages-to-scan: com.github.xiaoymin.boot3
-  default-flat-param-object: true
-
+    - group: default
+      packages-to-scan: com.hubu.controller
 knife4j:
   enable: true
   setting:
-    language: zh_cn
+    language: zh-CN
+    # 关键：让前端直接拼这个地址
+    openapi-url: /v3/api-docs
+    swagger-url: /v3/api-docs
 
 mybatis:
   #mapper配置文件

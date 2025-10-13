@@ -20,4 +20,9 @@ public class GlobalExceptionHandler {
         log.error("登录异常：{}",e.getMessage());
         return Result.error(e.getMessage());
     }
+    @ExceptionHandler(value = Exception.class)
+    public Result<String> exceptionHandler(Exception e){
+        log.error("系统错误");
+        return Result.error(e.getMessage());
+    }
 }
