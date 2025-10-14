@@ -1,69 +1,81 @@
-package com.hubu.config;/*
- * @Auther:long
- * @Date:2025/9/25
- * @Description:
- * @VERSON:1.8
- */
+package com.hubu.config;
 
 import com.hubu.interceptor.JwtTokenAdminInterceptor;
 import com.hubu.json.JacksonObjectMapper;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Info;
 import io.swagger.v3.oas.models.info.License;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import lombok.extern.slf4j.Slf4j;
-
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-// import org.springframework.context.annotation.Bean;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+import java.util.List;
 
 @Configuration
 @Slf4j
-public class WebMvcConfiguration extends WebMvcConfigurationSupport {
+public class WebMvcConfiguration implements WebMvcConfigurer {
 
     @Autowired
     private JwtTokenAdminInterceptor jwtTokenAdminInterceptor;
 
-
     /**
      * 注册自定义拦截器
-     *
-     * @param registry
      */
-    protected void addInterceptors(InterceptorRegistry registry) {
-        log.info("开始注册自定义拦截器...");
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        log.info("注册自定义拦截器...");
         registry.addInterceptor(jwtTokenAdminInterceptor)
                 .addPathPatterns("/admin/**")
-                .excludePathPatterns("/admin/employee/login");
+                .excludePathPatterns("/admin/employee/login",
+                        "/doc.html",
+                        "/webjars/**",
+                        "/v3/api-docs/**",
+                        "/swagger-resources/**");
     }
 
     /**
-     * 添加自定义消息转换器
-     *
-     * @param converters
+     * 添加自定义消息转换器（JSON序列化配置）
      */
 //    @Override
-//    protected void extendMessageConverters(List<HttpMessageConverter<?>> converters) {
+//    public void extendMessageConverters(List<HttpMessageConverter<?>> converters) {
 //        log.info("扩展消息转换器...");
-//        //创建一个消息转换器对象
 //        MappingJackson2HttpMessageConverter converter = new MappingJackson2HttpMessageConverter();
-//        //需要为消息转换器设置一个对象转换器，对象转换器可以将Java对象序列化为json数据
 //        converter.setObjectMapper(new JacksonObjectMapper());
-//        //将自己的消息转化器加入容器中
-//        converters.add(0,converter);
+//        converters.add(0, converter); // 优先使用自定义转换器
 //    }
+
     /**
-     * 通过knife4j生成接口文档
-     *
-     * @return
+     * Knife4j / Swagger 静态资源映射配置
+     */
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        log.info("注册 Swagger / Knife4j 静态资源映射...");
+
+        // Knife4j 主页面
+        registry.addResourceHandler("/doc.html")
+                .addResourceLocations("classpath:/META-INF/resources/");
+
+        // Swagger 3.x 新路径
+        registry.addResourceHandler("/swagger-ui/**")
+                .addResourceLocations("classpath:/META-INF/resources/webjars/");
+
+        // WebJar 资源
+        registry.addResourceHandler("/webjars/**")
+                .addResourceLocations("classpath:/META-INF/resources/webjars/");
+
+        // Swagger 元数据
+        registry.addResourceHandler("/v3/api-docs/**")
+                .addResourceLocations("classpath:/META-INF/resources/");
+    }
+
+    /**
+     * Swagger / Knife4j API 基本信息
      */
     @Bean
     public OpenAPI customOpenAPI() {
@@ -72,20 +84,8 @@ public class WebMvcConfiguration extends WebMvcConfigurationSupport {
                         .title("苍穹外卖项目接口文档")
                         .version("2.0")
                         .description("苍穹外卖项目接口文档")
-                        .license(new License().name("Apache 2.0").url("http://doc.xiaominfo.com")));
+                        .license(new License()
+                                .name("Apache 2.0")
+                                .url("http://doc.xiaominfo.com")));
     }
-
-    /**
-     * 设置静态资源映射
-     *
-     * @param registry
-     */
-    protected void addResourceHandlers(ResourceHandlerRegistry registry) {
-        log.info("开始设置静态资源映射...");
-        registry.addResourceHandler("/doc.html").addResourceLocations("classpath:/META-INF/resources/");
-        registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
-    }
-
-
-
 }

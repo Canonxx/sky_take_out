@@ -22,6 +22,7 @@ import com.hubu.exception.PasswordErrorException;
 import com.hubu.mapper.EmployeeMapper;
 import com.hubu.service.admin.EmployeeService;
 import com.hubu.strategy.context.LoginStrategyContext;
+import com.hubu.vo.EmployeePageQueryVO;
 import com.hubu.vo.PageResultVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
@@ -36,6 +37,8 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
+
 @Service
 @Slf4j
 public class EmployeeServiceImpl implements EmployeeService {
@@ -91,8 +94,15 @@ public class EmployeeServiceImpl implements EmployeeService {
         Page<Employee> employeePage = employeeMapper.pageQuery(employeePageQueryDTO);
         // 总记录数
         long total = employeePage.getTotal();
-        // 获取当前分页数据
-        List<Employee> records = employeePage.getResult();
+        // 获取当前分页数据 并转换成VO对象
+        List<EmployeePageQueryVO> records = employeePage.getResult()
+                .stream()
+                .map(employee -> {
+                    EmployeePageQueryVO employeePageQueryVO = new EmployeePageQueryVO();
+                    BeanUtils.copyProperties(employee,employeePageQueryVO);
+                    return employeePageQueryVO;
+                })
+                .collect(Collectors.toList());
         return new PageResultVO(total,records);
     }
 
