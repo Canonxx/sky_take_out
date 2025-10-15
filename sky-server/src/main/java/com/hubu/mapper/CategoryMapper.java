@@ -12,4 +12,8 @@ public interface CategoryMapper {
     void insert(Category category);
 
     Page<Category> find(Category category);
+
+    void update(Category category);
+
+    void deleteById(Long id);
 }

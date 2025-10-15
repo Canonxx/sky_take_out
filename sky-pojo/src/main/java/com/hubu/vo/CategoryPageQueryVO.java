@@ -26,6 +26,6 @@ public class CategoryPageQueryVO implements Serializable {
     @Schema(description = "分类状态")
     private Integer status;
     @Schema(description = "最后操作时间")
-    @JsonFormat(pattern = "yyyy-MM-dd HH-mm")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
     private LocalDateTime updateTime;
 }

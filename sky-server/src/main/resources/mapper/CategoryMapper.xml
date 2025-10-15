@@ -22,5 +22,25 @@
             <if test="createUser != null">and create_user = #{createUser} </if>
             <if test="updateUser != null">and update_user = #{updateUser}</if>
         </where>
+        order by sort asc,update_time desc
     </select>
+<!--    void update(Category category);-->
+    <update id="update" parameterType="com.hubu.entity.Category">
+        update category
+        <set>
+            <if test="type != null">type = #{type},</if>
+            <if test="name != null and name != ''">name = #{name},</if>
+            <if test="sort != null">sort = #{sort},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="updateUser != null">update_user = #{updateUser},</if>
+            <!-- 自动更新时间-->
+            update_time = NOW()
+        </set>
+        where id = #{id}
+    </update>
+<!--    void deleteById(Long id);-->
+    <delete id="deleteById">
+        delete from category
+        where id = #{id}
+    </delete>
 </mapper>

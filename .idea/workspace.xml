@@ -4,21 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="22d299d3-0b3c-4848-bf57-40b37a13a0af" name="Changes" comment="实现员工相关接口">
-      <change afterPath="$PROJECT_DIR$/sky-common/src/main/java/com/hubu/constant/CategoryStatusConstant.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sky-pojo/src/main/java/com/hubu/dto/CategoryDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sky-pojo/src/main/java/com/hubu/dto/CategoryPageQueryDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sky-pojo/src/main/java/com/hubu/entity/Category.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sky-pojo/src/main/java/com/hubu/vo/CategoryPageQueryVO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sky-pojo/src/main/java/com/hubu/vo/EmployeePageQueryVO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/controller/admin/CategoryController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/mapper/CategoryMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/service/admin/CategoryService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/service/admin/impl/CategoryServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sky-server/src/main/resources/mapper/CategoryMapper.xml" afterDir="false" />
+    <list default="true" id="22d299d3-0b3c-4848-bf57-40b37a13a0af" name="Changes" comment="完成添加分类和分类页面查询">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/config/WebMvcConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/config/WebMvcConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/service/admin/impl/EmployeeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/service/admin/impl/EmployeeServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-pojo/src/main/java/com/hubu/entity/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-pojo/src/main/java/com/hubu/entity/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-pojo/src/main/java/com/hubu/vo/CategoryPageQueryVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-pojo/src/main/java/com/hubu/vo/CategoryPageQueryVO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/controller/admin/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/controller/admin/CategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/mapper/CategoryMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/mapper/CategoryMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/service/admin/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/service/admin/CategoryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/service/admin/impl/CategoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/service/admin/impl/CategoryServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-server/src/main/resources/mapper/CategoryMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/resources/mapper/CategoryMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -209,7 +203,7 @@
       <workItem from="1758893006067" duration="31200000" />
       <workItem from="1759225199047" duration="4439000" />
       <workItem from="1759926334691" duration="4194000" />
-      <workItem from="1759976300661" duration="63593000" />
+      <workItem from="1759976300661" duration="71889000" />
     </task>
     <task id="LOCAL-00001" summary="init:初始化项目">
       <option name="closed" value="true" />
@@ -291,7 +285,15 @@
       <option name="project" value="LOCAL" />
       <updated>1760356831236</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="完成添加分类和分类页面查询">
+      <option name="closed" value="true" />
+      <created>1760446940842</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1760446940842</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -329,7 +331,8 @@
     <MESSAGE value="feat: add UserMapper.java" />
     <MESSAGE value="feat: 登录策略模式实现" />
     <MESSAGE value="实现员工相关接口" />
-    <option name="LAST_COMMIT_MESSAGE" value="实现员工相关接口" />
+    <MESSAGE value="完成添加分类和分类页面查询" />
+    <option name="LAST_COMMIT_MESSAGE" value="完成添加分类和分类页面查询" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -338,26 +341,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/com/hubu/Main.java</url>
           <line>19</line>
           <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/sky-server/src/main/java/com/hubu/controller/admin/CategoryController.java</url>
-          <line>29</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/sky-server/src/main/java/com/hubu/service/admin/impl/CategoryServiceImpl.java</url>
-          <line>41</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/sky-server/src/main/java/com/hubu/service/admin/impl/CategoryServiceImpl.java</url>
-          <line>51</line>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/sky-server/src/main/java/com/hubu/controller/admin/CategoryController.java</url>
-          <line>38</line>
-          <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -5,13 +5,19 @@ package com.hubu.entity;/*
  * @VERSON:1.8
  */
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Category implements Serializable {
     private Long id;
     private Integer type;

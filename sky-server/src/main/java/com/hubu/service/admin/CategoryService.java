@@ -13,4 +13,10 @@ public interface CategoryService {
     void save(CategoryDTO categoryDTO);
 
     PageResultVO pageQuery(CategoryPageQueryDTO categoryPageQueryDTO);
+
+    void update(CategoryDTO categoryDTO);
+
+    void startOrStop(Integer status, Long id);
+
+    void deleteById(Long id);
 }

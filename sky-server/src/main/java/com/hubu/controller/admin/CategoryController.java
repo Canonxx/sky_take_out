@@ -41,4 +41,28 @@ public class CategoryController {
         return Result.success(pageResultVO);
     }
 
+    @PutMapping
+    @Operation(description = "修改分类",summary = "修改分类")
+    public Result update(@RequestBody CategoryDTO categoryDTO){
+        log.info("修改分类时传递过来的数据：{}",categoryDTO);
+        categoryService.update(categoryDTO);
+        log.info("修改成功");
+        return Result.success();
+    }
+    @PostMapping("/status/{status}")
+    @Operation(description = "开启或禁用分类",summary = "开启禁用分类")
+    public Result startOrStop(@PathVariable Integer status,@RequestParam Long id){
+        log.info("status:{},id:{}",status,id);
+        categoryService.startOrStop(status,id);
+        log.info("禁用开启成功");
+        return Result.success();
+    }
+    @DeleteMapping
+    @Operation(description = "删除分类",summary = "删除分类")
+    public Result<String> deleteById(@RequestParam Long id){
+        log.info("删除分类{}",id);
+        categoryService.deleteById(id);
+        log.info("删除成功");
+        return Result.success();
+    }
 }
