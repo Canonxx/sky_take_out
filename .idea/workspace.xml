@@ -4,15 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="22d299d3-0b3c-4848-bf57-40b37a13a0af" name="Changes" comment="完成添加分类和分类页面查询">
+    <list default="true" id="22d299d3-0b3c-4848-bf57-40b37a13a0af" name="Changes" comment="完成分类相关操作接口">
+      <change afterPath="$PROJECT_DIR$/sky-common/src/main/java/com/hubu/constant/AutoFillConstant.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sky-common/src/main/java/com/hubu/constant/StatusConstant.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sky-common/src/main/java/com/hubu/enumeration/AutoFillEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sky-common/src/main/java/com/hubu/exception/DeletionNotAllowedException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/annotation/AutoFill.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/aspect/AutoFillAspect.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/mapper/DishMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/mapper/SetMealMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sky-server/src/main/resources/mapper/DishMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sky-server/src/main/resources/mapper/SetMealMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-pojo/src/main/java/com/hubu/entity/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-pojo/src/main/java/com/hubu/entity/Category.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-pojo/src/main/java/com/hubu/vo/CategoryPageQueryVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-pojo/src/main/java/com/hubu/vo/CategoryPageQueryVO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/controller/admin/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/controller/admin/CategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-common/src/main/java/com/hubu/constant/MessageConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-common/src/main/java/com/hubu/constant/MessageConstant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/handler/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/handler/GlobalExceptionHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/mapper/CategoryMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/mapper/CategoryMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/service/admin/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/service/admin/CategoryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/mapper/EmployeeMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/mapper/EmployeeMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/service/admin/impl/CategoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/service/admin/impl/CategoryServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-server/src/main/resources/mapper/CategoryMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/resources/mapper/CategoryMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,9 +30,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
         <option value="Interface" />
         <option value="Mapper" />
+        <option value="AnnotationType" />
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -63,7 +72,7 @@
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Spring Boot.SkyApplication.executor": "Debug",
+    "Spring Boot.SkyApplication.executor": "Run",
     "jdk.selected.JAVA_MODULE": "17",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "D:/Project/springboot/sky-take-out/data",
@@ -203,7 +212,7 @@
       <workItem from="1758893006067" duration="31200000" />
       <workItem from="1759225199047" duration="4439000" />
       <workItem from="1759926334691" duration="4194000" />
-      <workItem from="1759976300661" duration="71889000" />
+      <workItem from="1759976300661" duration="93989000" />
     </task>
     <task id="LOCAL-00001" summary="init:初始化项目">
       <option name="closed" value="true" />
@@ -293,7 +302,15 @@
       <option name="project" value="LOCAL" />
       <updated>1760446940842</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="完成分类相关操作接口">
+      <option name="closed" value="true" />
+      <created>1760511520840</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1760511520840</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -332,7 +349,8 @@
     <MESSAGE value="feat: 登录策略模式实现" />
     <MESSAGE value="实现员工相关接口" />
     <MESSAGE value="完成添加分类和分类页面查询" />
-    <option name="LAST_COMMIT_MESSAGE" value="完成添加分类和分类页面查询" />
+    <MESSAGE value="完成分类相关操作接口" />
+    <option name="LAST_COMMIT_MESSAGE" value="完成分类相关操作接口" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

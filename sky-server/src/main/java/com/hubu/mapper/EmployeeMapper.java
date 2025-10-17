@@ -6,8 +6,10 @@ package com.hubu.mapper;/*
  */
 
 import com.github.pagehelper.Page;
+import com.hubu.annotation.AutoFill;
 import com.hubu.dto.EmployeePageQueryDTO;
 import com.hubu.entity.Employee;
+import com.hubu.enumeration.AutoFillEnum;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -19,11 +21,11 @@ public interface EmployeeMapper {
      * @return
      */
     Employee findEmployeeByUserName(String username);
-
+    @AutoFill(AutoFillEnum.INSERT)
     void insert(Employee employee);
 
     Page<Employee> pageQuery(EmployeePageQueryDTO employeePageQueryDTO);
-
+    @AutoFill(AutoFillEnum.UPDATE)
     void update(Employee employee);
 
     Employee findById(Long id);

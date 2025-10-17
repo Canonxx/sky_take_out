@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 @Slf4j
 public class GlobalExceptionHandler {
-    //捕获登录异常
+    //捕获业务异常
     @ExceptionHandler(value = BaseException.class)
     public Result<String> LoginExceptionHandler(BaseException e){
-        log.error("登录异常：{}",e.getMessage());
+        log.error("异常信息：{}",e.getMessage());
         return Result.error(e.getMessage());
     }
     @ExceptionHandler(value = Exception.class)

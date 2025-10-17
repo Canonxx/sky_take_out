@@ -9,11 +9,15 @@ import com.fasterxml.jackson.databind.ser.Serializers;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.hubu.constant.CategoryStatusConstant;
+import com.hubu.constant.MessageConstant;
 import com.hubu.context.BaseContext;
 import com.hubu.dto.CategoryDTO;
 import com.hubu.dto.CategoryPageQueryDTO;
 import com.hubu.entity.Category;
+import com.hubu.exception.DeletionNotAllowedException;
 import com.hubu.mapper.CategoryMapper;
+import com.hubu.mapper.DishMapper;
+import com.hubu.mapper.SetMealMapper;
 import com.hubu.service.admin.CategoryService;
 import com.hubu.vo.CategoryPageQueryVO;
 import com.hubu.vo.PageResultVO;
@@ -29,16 +33,20 @@ import java.util.stream.Collectors;
 public class CategoryServiceImpl implements CategoryService {
     @Autowired
     private CategoryMapper categoryMapper;
+    @Autowired
+    private DishMapper dishMapper;
+    @Autowired
+    private SetMealMapper setMealMapper;
     @Override
     public void save(CategoryDTO categoryDTO) {
         Category category = new Category();
         BeanUtils.copyProperties(categoryDTO,category);
         // 设置分类状态 默认为开启
         category.setStatus(CategoryStatusConstant.ENABLE);
-        category.setCreateTime(LocalDateTime.now());
-        category.setUpdateTime(LocalDateTime.now());
-        category.setCreateUser(BaseContext.getCurrentId());
-        category.setUpdateUser(BaseContext.getCurrentId());
+//        category.setCreateTime(LocalDateTime.now());
+//        category.setUpdateTime(LocalDateTime.now());
+//        category.setCreateUser(BaseContext.getCurrentId());
+//        category.setUpdateUser(BaseContext.getCurrentId());
         categoryMapper.insert(category);
     }
 
@@ -82,6 +90,15 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public void deleteById(Long id) {
+        Integer count = dishMapper.countByCategoryId(id);
+        if (count>0){
+            throw new DeletionNotAllowedException(MessageConstant.CATEGORY_BE_RELATED_BY_DISH);
+        }
+        categoryMapper.deleteById(id);
+        count = setMealMapper.countByCategoryId(id);
+        if(count>0){
+            throw new DeletionNotAllowedException(MessageConstant.CATEGORY_BE_RELATED_BY_SETMEAL);
+        }
         categoryMapper.deleteById(id);
     }
 }
