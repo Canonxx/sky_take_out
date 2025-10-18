@@ -12,4 +12,6 @@ public final class MessageConstant {
     public static final String ACCOUNT_LOCKED = "账户锁定";
     public static final String CATEGORY_BE_RELATED_BY_DISH = "当前分类关联了菜品，不能删除";
     public static final String CATEGORY_BE_RELATED_BY_SETMEAL = "当前分类关联了套餐，不能删除";
+    public static final String UPLOAD_FAILED = "文件上传失败";
+
 }

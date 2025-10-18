@@ -21,6 +21,7 @@ import com.hubu.mapper.SetMealMapper;
 import com.hubu.service.admin.CategoryService;
 import com.hubu.vo.CategoryPageQueryVO;
 import com.hubu.vo.PageResultVO;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,6 +31,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
+@Slf4j
 public class CategoryServiceImpl implements CategoryService {
     @Autowired
     private CategoryMapper categoryMapper;
@@ -100,5 +102,22 @@ public class CategoryServiceImpl implements CategoryService {
             throw new DeletionNotAllowedException(MessageConstant.CATEGORY_BE_RELATED_BY_SETMEAL);
         }
         categoryMapper.deleteById(id);
+    }
+
+    @Override
+    public List<CategoryPageQueryVO> typeList(Integer type) {
+        Category category = new Category();
+        category.setType(type);
+        log.info("开始查询");
+        List<Category> categoryList =  categoryMapper.find(category);
+        log.info("查询结束");
+        List<CategoryPageQueryVO> categoryPageQueryVOList = categoryList.stream()
+                .map(category1 -> {
+                    CategoryPageQueryVO categoryPageQueryVO = new CategoryPageQueryVO();
+                    BeanUtils.copyProperties(category1, categoryPageQueryVO);
+                    return categoryPageQueryVO;
+                })
+                .collect(Collectors.toList());
+        return categoryPageQueryVOList;
     }
 }

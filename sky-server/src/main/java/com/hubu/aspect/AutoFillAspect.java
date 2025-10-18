@@ -49,7 +49,6 @@ public class AutoFillAspect {
         // 获取切入方法的参数对象 实参
         Object[] args = joinPoint.getArgs();
         Object entity = args[0];//获取实体对象
-
         //准备赋值的数据
         LocalDateTime now = LocalDateTime.now();
         Long currentId = BaseContext.getCurrentId();

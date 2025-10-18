@@ -7,7 +7,10 @@ package com.hubu.service.admin;/*
 
 import com.hubu.dto.CategoryDTO;
 import com.hubu.dto.CategoryPageQueryDTO;
+import com.hubu.vo.CategoryPageQueryVO;
 import com.hubu.vo.PageResultVO;
+
+import java.util.List;
 
 public interface CategoryService {
     void save(CategoryDTO categoryDTO);
@@ -19,4 +22,6 @@ public interface CategoryService {
     void startOrStop(Integer status, Long id);
 
     void deleteById(Long id);
+
+    List<CategoryPageQueryVO> typeList(Integer type);
 }

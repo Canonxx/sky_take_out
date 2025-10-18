@@ -9,12 +9,15 @@ import com.hubu.dto.CategoryDTO;
 import com.hubu.dto.CategoryPageQueryDTO;
 import com.hubu.result.Result;
 import com.hubu.service.admin.CategoryService;
+import com.hubu.vo.CategoryPageQueryVO;
 import com.hubu.vo.PageResultVO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/admin/category")
@@ -64,5 +67,14 @@ public class CategoryController {
         categoryService.deleteById(id);
         log.info("删除成功");
         return Result.success();
+    }
+
+    @GetMapping("/list")
+    @Operation(description = "获取菜品分类",summary = "获取菜品分类")
+    public Result<List<CategoryPageQueryVO>> typeList(@RequestParam Integer type){
+        log.info("获取分类类型{}",type);
+        List<CategoryPageQueryVO> categoryPageQueryVOList = categoryService.typeList(type);
+        log.info("查询成功");
+        return Result.success(categoryPageQueryVOList);
     }
 }
