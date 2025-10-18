@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="22d299d3-0b3c-4848-bf57-40b37a13a0af" name="Changes" comment="新增菜品查询功能" />
+    <list default="true" id="22d299d3-0b3c-4848-bf57-40b37a13a0af" name="Changes" comment="新增菜品查询功能">
+      <change beforePath="$PROJECT_DIR$/sky-server/src/main/resources/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/resources/application-dev.yml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -196,7 +198,7 @@
       <workItem from="1759225199047" duration="4439000" />
       <workItem from="1759926334691" duration="4194000" />
       <workItem from="1759976300661" duration="95370000" />
-      <workItem from="1760701067298" duration="24055000" />
+      <workItem from="1760701067298" duration="24364000" />
     </task>
     <task id="LOCAL-00001" summary="init:初始化项目">
       <option name="closed" value="true" />
@@ -310,7 +312,31 @@
       <option name="project" value="LOCAL" />
       <updated>1760774660603</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="新增菜品查询功能">
+      <option name="closed" value="true" />
+      <created>1760775009249</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1760775009249</updated>
+    </task>
+    <task id="LOCAL-00016" summary="新增菜品查询功能">
+      <option name="closed" value="true" />
+      <created>1760775220787</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1760775220787</updated>
+    </task>
+    <task id="LOCAL-00017" summary="新增菜品查询功能">
+      <option name="closed" value="true" />
+      <created>1760775257194</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1760775257194</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
