@@ -4,32 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="22d299d3-0b3c-4848-bf57-40b37a13a0af" name="Changes" comment="实现字段自动填充">
-      <change afterPath="$PROJECT_DIR$/sky-common/src/main/java/com/hubu/properties/AliOssProperties.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sky-common/src/main/java/com/hubu/utils/AliOssUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sky-pojo/src/main/java/com/hubu/dto/DishDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sky-pojo/src/main/java/com/hubu/dto/DishPageQueryDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sky-pojo/src/main/java/com/hubu/entity/Dish.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sky-pojo/src/main/java/com/hubu/entity/DishFlavor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sky-pojo/src/main/java/com/hubu/vo/DishVO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/config/OssConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/controller/admin/CommonController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/controller/admin/DishController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/mapper/DishFlavorMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/service/admin/DishService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/service/admin/impl/DishServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sky-server/src/main/resources/application-dev.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sky-server/src/main/resources/mapper/DishFlavorMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-common/src/main/java/com/hubu/constant/MessageConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-common/src/main/java/com/hubu/constant/MessageConstant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/aspect/AutoFillAspect.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/aspect/AutoFillAspect.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/controller/admin/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/controller/admin/CategoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/mapper/DishMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/mapper/DishMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/service/admin/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/service/admin/CategoryService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/service/admin/impl/CategoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/service/admin/impl/CategoryServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-server/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-server/src/main/resources/mapper/DishMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/resources/mapper/DishMapper.xml" afterDir="false" />
-    </list>
+    <list default="true" id="22d299d3-0b3c-4848-bf57-40b37a13a0af" name="Changes" comment="新增菜品查询功能" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -221,7 +196,7 @@
       <workItem from="1759225199047" duration="4439000" />
       <workItem from="1759926334691" duration="4194000" />
       <workItem from="1759976300661" duration="95370000" />
-      <workItem from="1760701067298" duration="23725000" />
+      <workItem from="1760701067298" duration="24055000" />
     </task>
     <task id="LOCAL-00001" summary="init:初始化项目">
       <option name="closed" value="true" />
@@ -327,7 +302,15 @@
       <option name="project" value="LOCAL" />
       <updated>1760693556678</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="新增菜品查询功能">
+      <option name="closed" value="true" />
+      <created>1760774660603</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1760774660603</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -368,7 +351,8 @@
     <MESSAGE value="完成添加分类和分类页面查询" />
     <MESSAGE value="完成分类相关操作接口" />
     <MESSAGE value="实现字段自动填充" />
-    <option name="LAST_COMMIT_MESSAGE" value="实现字段自动填充" />
+    <MESSAGE value="新增菜品查询功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="新增菜品查询功能" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
