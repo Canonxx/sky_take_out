@@ -56,7 +56,8 @@ public class WebMvcConfiguration implements WebMvcConfigurer {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         log.info("注册 Swagger / Knife4j 静态资源映射...");
-
+        registry.addResourceHandler("/static/**")
+                        .addResourceLocations("file:D:/Project/springboot/sky-take-out/sky-server/src/main/resources/upload/");
         // Knife4j 主页面
         registry.addResourceHandler("/doc.html")
                 .addResourceLocations("classpath:/META-INF/resources/");
