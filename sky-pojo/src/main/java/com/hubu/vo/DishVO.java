@@ -1,17 +1,20 @@
 package com.hubu.vo;/*
  * @Auther:long
- * @Date:2025/10/17
+ * @Date:2025/10/19
  * @Description:
  * @VERSON:1.8
  */
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.hubu.entity.DishFlavor;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 public class DishVO implements Serializable {
@@ -29,12 +32,10 @@ public class DishVO implements Serializable {
     private String image;
     @Schema(description = "描述信息")
     private String description;
-    @Schema(description = "菜品状态")
-    private Integer status;
-    @Schema(description = "最近更新时间")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
-    // todo 时间格式化待解决
     private LocalDateTime updateTime;
-
-
+    @Schema(description = "口味")
+    private List<DishFlavor> flavors = new ArrayList<>();
+    //0 停售 1 起售
+    private Integer status;
 }

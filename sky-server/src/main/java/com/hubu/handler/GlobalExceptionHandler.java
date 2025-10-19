@@ -22,7 +22,7 @@ public class GlobalExceptionHandler {
     }
     @ExceptionHandler(value = Exception.class)
     public Result<String> exceptionHandler(Exception e){
-        log.error("系统错误");
+        log.error("错误{}",e.getMessage());
         return Result.error(e.getMessage());
     }
 }

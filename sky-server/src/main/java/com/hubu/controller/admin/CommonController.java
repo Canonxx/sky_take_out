@@ -27,6 +27,7 @@ import java.util.UUID;
 @RequestMapping("/admin/common")
 @Tag(name = "通用接口")
 @Slf4j
+// todo 图片展示不出来
 public class CommonController {
 
     @Autowired

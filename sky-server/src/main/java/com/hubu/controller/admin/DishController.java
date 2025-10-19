@@ -7,12 +7,15 @@ package com.hubu.controller.admin;/*
 
 import com.hubu.dto.DishDTO;
 import com.hubu.dto.DishPageQueryDTO;
+import com.hubu.mapper.DishMapper;
 import com.hubu.result.Result;
 import com.hubu.service.admin.DishService;
 import com.hubu.vo.CategoryPageQueryVO;
+import com.hubu.vo.DishPageQueryVO;
 import com.hubu.vo.DishVO;
 import com.hubu.vo.PageResultVO;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import io.swagger.v3.oas.annotations.tags.Tags;
 import lombok.extern.slf4j.Slf4j;
@@ -48,4 +51,36 @@ public class DishController {
         return Result.success(pageResultVO);
     }
 
+    @GetMapping("/{id}")
+    @Operation(description = "根据id查询菜品信息",summary = "根据id查询菜品信息")
+    public Result<DishVO> query(@PathVariable Integer id){
+        log.info("根据id查询菜品{}",id);
+        DishVO dishVO = dishService.query(id);
+        log.info("查询成功");
+        return Result.success(dishVO);
+    }
+    @PutMapping
+    @Operation(description = "修改菜品",summary = "修改菜品")
+    public Result<String> update(@RequestBody DishDTO dishDTO){
+        log.info("修改菜品{}",dishDTO);
+        dishService.update(dishDTO);
+        log.info("修改成功！");
+        return Result.success();
+    }
+    @PostMapping("/status/{status}")
+    @Operation(description = "启售或停售",summary = "启售或停售")
+    public Result<String> startOrStop(@PathVariable Integer status, @RequestParam Long id){
+        log.info("启售或停售菜品id{},status{}",id,status);
+        dishService.startOrStop(status,id);
+        log.info("启售停售功能完成");
+        return Result.success();
+    }
+    @DeleteMapping
+    @Operation(description = "删除菜品根据id",summary = "删除彩品")
+    public Result<String> delete(@RequestParam List<Long> ids){
+        log.info("删除菜品ids{}",ids);
+        dishService.delete(ids);
+        log.info("删除成功");
+        return Result.success();
+    }
 }

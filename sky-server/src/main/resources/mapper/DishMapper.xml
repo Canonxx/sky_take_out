@@ -15,8 +15,8 @@
         dish(name,category_id,price,image,description,status,create_time,update_time,create_user,update_user)
         values (#{name},#{categoryId},#{price},#{image}, #{description}, #{status}, #{createTime}, #{updateTime}, #{createUser}, #{updateUser})
     </insert>
-    <!--        Page<DishVO> pageQuery(Dish dish);-->
-    <select id="pageQuery" parameterType="com.hubu.entity.Dish" resultType="com.hubu.vo.DishVO">
+    <!--        Page<DishPageQueryVO> pageQuery(Dish dish);-->
+    <select id="pageQuery" parameterType="com.hubu.entity.Dish" resultType="com.hubu.vo.DishPageQueryVO">
         select d.*,c.name as category_name
         from dish d
         left join category c on d.category_id = c.id
@@ -33,4 +33,53 @@
         </where>
         order by d.update_time desc
     </select>
+
+<!--    DishPageQueryVO queryById(Integer id);-->
+    <select id="queryById" resultType="com.hubu.vo.DishPageQueryVO">
+        select d.*,c.name as category_name
+        from dish d
+        left join category c on d.category_id = c.id
+        where d.id = #{id}
+    </select>
+
+<!--    List<DishFlavor> queryFlavorsById(Integer id);-->
+    <select id="queryFlavorsById" resultType="com.hubu.entity.DishFlavor">
+        select *
+        from dish_flavor
+        where dish_id =#{id}
+    </select>
+<!--    void update(Dish dish);-->
+    <update id="update" parameterType="com.hubu.entity.Dish">
+        update dish
+        <set>
+            <if test="name != null and name != ''">name = #{name},</if>
+            <if test="categoryId != null ">category_id = #{categoryId},</if>
+            <if test="price != null ">price = #{price},</if>
+            <if test="image != null ">image = #{image},</if>
+            <if test="description != null ">description = #{description},</if>
+            <if test="status != null ">status = #{status},</if>
+            <if test="updateTime != null ">update_time = #{updateTime},</if>
+            <if test="updateUser != null ">update_user = #{updateUser}</if>
+        </set>
+        where id = #{id}
+    </update>
+
+<!--    List<Dish> queryByIds(List<Long> ids);-->
+    <select id="queryByIds">
+        select *
+        from dish
+        where id in
+        <foreach collection="ids" item="id" separator="," open="(" close=")">
+            #{id}
+        </foreach>
+    </select>
+
+<!--    void deleteBatchByIds(List<Long> ids);-->
+    <delete id="deleteBatchByIds">
+        delete from dish
+        where id in
+        <foreach collection="ids" item="id" separator="," open="(" close=")">
+            #{id}
+        </foreach>
+    </delete>
 </mapper>
