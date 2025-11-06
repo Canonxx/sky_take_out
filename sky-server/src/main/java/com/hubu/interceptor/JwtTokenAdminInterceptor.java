@@ -6,7 +6,10 @@ package com.hubu.interceptor;/*
  */
 
 import com.hubu.constant.JwtClaimsConstant;
+import com.hubu.constant.MessageConstant;
+import com.hubu.constant.RedisKeyPrefixConstant;
 import com.hubu.context.BaseContext;
+import com.hubu.exception.TokenExpiredException;
 import com.hubu.properties.JwtProperties;
 import com.hubu.utils.JwtUtil;
 import io.jsonwebtoken.Claims;
@@ -17,6 +20,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 import lombok.val;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerAdapter;
@@ -32,6 +36,8 @@ import java.util.Set;
 @Component
 @Slf4j
 public class JwtTokenAdminInterceptor implements HandlerInterceptor {
+    @Autowired
+    private StringRedisTemplate stringRedisTemplate;
     @Autowired
     private JwtProperties jwtProperties;
     private static Set<String> EXCLUDED_URLS = new HashSet<>();
@@ -54,6 +60,11 @@ public class JwtTokenAdminInterceptor implements HandlerInterceptor {
         //拦截jwt
         // 1.获取token
         String token = request.getHeader(jwtProperties.getAdminTokenName());
+        // 2.判断是否在白名单
+        if (Boolean.TRUE.equals(stringRedisTemplate.hasKey(RedisKeyPrefixConstant.EXCLUDE_LIST+token)))
+        {
+            throw new TokenExpiredException(MessageConstant.TOKEN_EXPIRED);
+        }
         // 2.验证token
         try {
             Claims claims = JwtUtil.parseJWT(jwtProperties.getAdminSecretKey(),token);

@@ -30,7 +30,7 @@ import java.util.UUID;
 @RequestMapping("/admin/common")
 @Tag(name = "通用接口")
 @Slf4j
-// todo 图片展示不出来
+// todo 图片展示不出来 目前只能实现在本地保存图片
 public class CommonController {
 
 //    @Autowired

@@ -5,6 +5,7 @@ package com.hubu.controller.admin;/*
  * @VERSON:1.8
  */
 
+import com.hubu.annotation.AutoPrintLog;
 import com.hubu.dto.DishDTO;
 import com.hubu.dto.DishPageQueryDTO;
 import com.hubu.mapper.DishMapper;
@@ -32,11 +33,12 @@ import java.util.List;
 public class DishController {
     @Autowired
     private DishService dishService;
+    @AutoPrintLog
     @PostMapping
     @Operation(description = "新增菜品",summary = "新增菜品")
     //
     public Result<String> add(@RequestBody DishDTO dishDTO){
-        log.info("新增菜品：{}",dishDTO);
+//        log.info("新增菜品：{}",dishDTO);
         dishService.add(dishDTO);
         log.info("新增菜品完成");
         return Result.success();

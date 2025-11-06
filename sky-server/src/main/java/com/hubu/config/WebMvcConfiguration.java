@@ -32,7 +32,7 @@ public class WebMvcConfiguration implements WebMvcConfigurer {
         log.info("注册自定义拦截器...");
         registry.addInterceptor(jwtTokenAdminInterceptor)
                 .addPathPatterns("/admin/**")
-                .excludePathPatterns("/admin/employee/login",
+                .excludePathPatterns("/admin/employee/login","/admin/employee/test",
                         "/doc.html",
                         "/webjars/**",
                         "/v3/api-docs/**",

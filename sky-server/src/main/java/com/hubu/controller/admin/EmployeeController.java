@@ -6,6 +6,7 @@ package com.hubu.controller.admin;/*
  */
 
 import com.hubu.constant.JwtClaimsConstant;
+import com.hubu.constant.RedisKeyPrefixConstant;
 import com.hubu.dto.EmployeeDTO;
 import com.hubu.dto.EmployeeLoginDTO;
 import com.hubu.dto.EmployeePageQueryDTO;
@@ -18,18 +19,25 @@ import com.hubu.vo.EmployeeLoginVO;
 import com.hubu.vo.PageResultVO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.bind.annotation.*;
 
+import java.net.http.HttpRequest;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 @Slf4j
 @RestController
 @RequestMapping("admin/employee")
 @Tag(name = "员工管理",description = "员工相关接口")
 public class EmployeeController {
+    @Autowired
+    private StringRedisTemplate stringRedisTemplate;
     @Autowired
     private EmployeeService employeeService;
     @Autowired
@@ -41,6 +49,7 @@ public class EmployeeController {
     @Operation(description = "员工登录",summary = "员工登录")
     @PostMapping("/login")
     public Result<EmployeeLoginVO> login(@RequestBody EmployeeLoginDTO employeeLoginDTO){
+        //
         Employee employee = employeeService.login(employeeLoginDTO);
         //登录成功后，生成jwt令牌
         Map<String,Object> clamis = new HashMap<>();
@@ -54,6 +63,24 @@ public class EmployeeController {
                 .userName(employee.getUsername())
                 .build();
         return Result.success(employeeLoginVO);
+    }
+
+    /**
+     * 登出功能
+     * @return
+     */
+    @PostMapping("/logout")
+    @Operation(description = "登出员工",summary = "登出员工")
+    public Result<String> logOut(HttpServletRequest request){
+        log.info("开始退出");
+        // 1.获取请求头token
+        String token = request.getHeader(jwtProperties.getAdminTokenName());
+        // 2.加入白名单
+        if (token!=null){
+            stringRedisTemplate.opsForValue().set(RedisKeyPrefixConstant.EXCLUDE_LIST +token,"1",jwtProperties.getAdminTtl(), TimeUnit.MILLISECONDS);
+        }
+        log.info("退出成功");
+        return Result.success();
     }
     @PostMapping
     @Operation(description = "添加员工",summary = "添加员工")
@@ -95,4 +122,9 @@ public class EmployeeController {
         log.info("更新员工信息完成");
         return Result.success();
     }
+    @GetMapping("/test")
+    public void testSession(HttpSession session){
+        session.setAttribute("name","yl");
+    }
+
 }

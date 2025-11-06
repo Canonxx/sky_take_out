@@ -23,10 +23,14 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource
   data:
     redis:
-      host: 127.0.0.1
+      host: 10.191.199.227
       port: 6379
-      password: 123456
       timeout: 3000ms
+      lettuce:
+        pool:
+          max-active: 8
+          max-idle: 8
+          min-idle: 0
   web:
     locale: zh_CN
     locale-resolver: fixed
