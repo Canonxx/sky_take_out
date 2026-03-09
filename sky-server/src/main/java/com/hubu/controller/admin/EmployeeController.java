@@ -49,7 +49,7 @@ public class EmployeeController {
     @Operation(description = "员工登录",summary = "员工登录")
     @PostMapping("/login")
     public Result<EmployeeLoginVO> login(@RequestBody EmployeeLoginDTO employeeLoginDTO){
-        //
+        // 员工登录
         Employee employee = employeeService.login(employeeLoginDTO);
         //登录成功后，生成jwt令牌
         Map<String,Object> clamis = new HashMap<>();

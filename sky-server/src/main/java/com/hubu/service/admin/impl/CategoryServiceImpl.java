@@ -105,9 +105,11 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public List<CategoryPageQueryVO> typeList(Integer type) {
+    public List<CategoryPageQueryVO> typeList(Long type) {
         Category category = new Category();
-        category.setType(type);
+        if(type!=null){
+            category.setType(type.intValue());
+        }
         log.info("开始查询");
         List<Category> categoryList =  categoryMapper.find(category);
         log.info("查询结束");

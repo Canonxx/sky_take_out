@@ -23,7 +23,7 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource
   data:
     redis:
-      host: 10.191.199.227
+      host: 192.168.81.129
       port: 6379
       timeout: 3000ms
       lettuce:
@@ -85,3 +85,6 @@ sky:
     access-key-id: ${sky.alioss.access-key-id}
     access-key-secret: ${sky.alioss.access-key-secret}
     bucket-name: ${sky.alioss.bucket-name}
+  wechat:
+    appId: ${sky.wechat.appId}
+    appSecret: ${sky.wechat.appSecret}

@@ -43,4 +43,10 @@
         delete from category
         where id = #{id}
     </delete>
+<!--    String findNameById(Long categoryId);-->
+    <select id="findNameById">
+        select name
+        from category
+        where id = #{id}
+    </select>
 </mapper>

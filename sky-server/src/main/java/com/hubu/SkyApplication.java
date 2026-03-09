@@ -16,7 +16,7 @@ import org.springframework.stereotype.Component;
 @SpringBootApplication
 @Slf4j
 @MapperScan("com.hubu.mapper")
-public class SkyApplication {
+public class SkyApplication  {
     public static void main(String[] args) {
         SpringApplication.run(SkyApplication.class,args);
         log.info("server start");

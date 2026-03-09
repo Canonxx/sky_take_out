@@ -23,5 +23,5 @@ public interface CategoryService {
 
     void deleteById(Long id);
 
-    List<CategoryPageQueryVO> typeList(Integer type);
+    List<CategoryPageQueryVO> typeList(Long type);
 }

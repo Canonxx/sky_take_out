@@ -7,6 +7,7 @@ package com.hubu.service.admin;/*
 
 import com.hubu.dto.DishDTO;
 import com.hubu.dto.DishPageQueryDTO;
+import com.hubu.entity.Dish;
 import com.hubu.vo.CategoryPageQueryVO;
 import com.hubu.vo.DishPageQueryVO;
 import com.hubu.vo.DishVO;
@@ -26,4 +27,8 @@ public interface DishService {
     void startOrStop(Integer status, Long id);
 
     void delete(List<Long> ids);
+
+    List<Dish> queryCategroyList(Long categoryId);
+
+    List<DishVO> listWithFlavor(Dish dish);
 }

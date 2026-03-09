@@ -11,6 +11,7 @@ import com.hubu.entity.Dish;
 import com.hubu.entity.DishFlavor;
 import com.hubu.enumeration.AutoFillEnum;
 import com.hubu.vo.DishPageQueryVO;
+import com.hubu.vo.DishVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 
@@ -33,4 +34,5 @@ public interface DishMapper {
 
     void deleteBatchByIds(List<Long> ids);
 
+    List<Dish> queryByCategoryId(Long categoryId);
 }

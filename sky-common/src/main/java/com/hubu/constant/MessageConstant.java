@@ -7,6 +7,8 @@ package com.hubu.constant;/*
 
 public final class MessageConstant {
 
+
+
     private MessageConstant(){}
     public static final String ACCOUNT_NOT_FOUND = "账户不存在";
     public static final String PASSWORD_ERROR = "密码不存在";
@@ -17,4 +19,9 @@ public final class MessageConstant {
     public static final String DISH_ON_SALE = "菜品在售，不能删除";
     public static final String DISH_BE_RELATED_SETMEAL = "菜品关联套餐，不能删除";
     public static final String TOKEN_EXPIRED = "token过期，重新登录";
+    public static final String SESSION_INVALID = "session无效，重新登录";
+    public static final String START_NOT_ALLOWED = "不允许启售，其关联的菜品为禁售";
+    public static final String SETMEAL_ON_SALE = "套餐在售，不能删除";
+    public static final String LOGIN_FAILED = "登陆异常";
+
 }

@@ -1,6 +1,6 @@
 package com.hubu.interceptor;/*
  * @Auther:long
- * @Date:2025/9/25
+ * @Date:2026/3/9
  * @Description:
  * @VERSON:1.8
  */
@@ -13,37 +13,29 @@ import com.hubu.exception.TokenExpiredException;
 import com.hubu.properties.JwtProperties;
 import com.hubu.utils.JwtUtil;
 import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.ExpiredJwtException;
-import io.jsonwebtoken.Jwts;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
-import lombok.val;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.web.method.HandlerMethod;
-import org.springframework.web.servlet.HandlerAdapter;
 import org.springframework.web.servlet.HandlerInterceptor;
 
-import java.nio.charset.StandardCharsets;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * jwt令牌校验的拦截器
- */
 @Component
 @Slf4j
-public class JwtTokenAdminInterceptor implements HandlerInterceptor {
+public class JwtTokenUserInterceptor implements HandlerInterceptor {
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
     @Autowired
     private JwtProperties jwtProperties;
     private static Set<String> EXCLUDED_URLS = new HashSet<>();
     static {
-        EXCLUDED_URLS.add("/admin/employee/login");
         EXCLUDED_URLS.add("/user/user/login");
+        EXCLUDED_URLS.add("/user/shop/status");
     }
 
     @Override
@@ -60,7 +52,7 @@ public class JwtTokenAdminInterceptor implements HandlerInterceptor {
         }
         //拦截jwt
         // 1.获取token
-        String token = request.getHeader(jwtProperties.getAdminTokenName());
+        String token = request.getHeader(jwtProperties.getUserTokenName());
         // 2.判断是否在白名单
         if (Boolean.TRUE.equals(stringRedisTemplate.hasKey(RedisKeyPrefixConstant.EXCLUDE_LIST+token)))
         {
@@ -68,8 +60,9 @@ public class JwtTokenAdminInterceptor implements HandlerInterceptor {
         }
         // 2.验证token
         try {
-            Claims claims = JwtUtil.parseJWT(jwtProperties.getAdminSecretKey(),token);
-            Long id = Long.valueOf(claims.get(JwtClaimsConstant.EMP_ID).toString());
+            Claims claims = JwtUtil.parseJWT(jwtProperties.getUserSecretKey(),token);
+            Long id = Long.valueOf(claims.get(JwtClaimsConstant.USER_ID).toString());
+            log.info("当前的用户id:{}",id);
             BaseContext.setCurrentId(id);
             return true;
         }

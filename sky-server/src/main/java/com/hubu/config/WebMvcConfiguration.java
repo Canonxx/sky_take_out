@@ -1,6 +1,8 @@
 package com.hubu.config;
 
 import com.hubu.interceptor.JwtTokenAdminInterceptor;
+import com.hubu.interceptor.JwtTokenUserInterceptor;
+import com.hubu.interceptor.LoginAdminInterceptor;
 import com.hubu.json.JacksonObjectMapper;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Info;
@@ -23,7 +25,10 @@ public class WebMvcConfiguration implements WebMvcConfigurer {
 
     @Autowired
     private JwtTokenAdminInterceptor jwtTokenAdminInterceptor;
-
+    @Autowired
+    private LoginAdminInterceptor loginAdminInterceptor;
+    @Autowired
+    private JwtTokenUserInterceptor jwtTokenUserInterceptor;
     /**
      * 注册自定义拦截器
      */
@@ -37,6 +42,22 @@ public class WebMvcConfiguration implements WebMvcConfigurer {
                         "/webjars/**",
                         "/v3/api-docs/**",
                         "/swagger-resources/**");
+        // 注册userInterceptor拦截器
+        registry.addInterceptor(jwtTokenUserInterceptor)
+                .addPathPatterns("/user/**")
+                .excludePathPatterns("/user/user/login","/user/shop/status",
+                        "/doc.html",
+                        "/webjars/**",
+                        "/v3/api-docs/**",
+                        "/swagger-resources/**");
+//        //用session校验
+//        registry.addInterceptor(loginAdminInterceptor)
+//                .addPathPatterns("/admin/**")
+//                .excludePathPatterns("/admin/employee/login","/admin/employee/test",
+//                        "/doc.html",
+//                        "/webjars/**",
+//                        "/v3/api-docs/**",
+//                        "/swagger-resources/**");
     }
 
     /**

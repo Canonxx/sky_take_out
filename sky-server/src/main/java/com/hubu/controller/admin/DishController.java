@@ -8,6 +8,7 @@ package com.hubu.controller.admin;/*
 import com.hubu.annotation.AutoPrintLog;
 import com.hubu.dto.DishDTO;
 import com.hubu.dto.DishPageQueryDTO;
+import com.hubu.entity.Dish;
 import com.hubu.mapper.DishMapper;
 import com.hubu.result.Result;
 import com.hubu.service.admin.DishService;
@@ -54,7 +55,7 @@ public class DishController {
     }
 
     @GetMapping("/{id}")
-    @Operation(description = "根据id查询菜品信息",summary = "根据id查询菜品信息")
+    @Operation(description = "根据菜品id查询菜品信息",summary = "根据id查询菜品信息")
     public Result<DishVO> query(@PathVariable Integer id){
         log.info("根据id查询菜品{}",id);
         DishVO dishVO = dishService.query(id);
@@ -84,5 +85,18 @@ public class DishController {
         dishService.delete(ids);
         log.info("删除成功");
         return Result.success();
+    }
+
+    /**
+     * 查询菜品为categoryId的集合
+     * @param categoryId
+     * @return
+     */
+    @GetMapping("/list")
+    public Result<List<Dish>> dishCategoryList(@RequestParam Long categoryId){
+        log.info("查询分类id为：{}",categoryId);
+        List<Dish> dishList =  dishService.queryCategroyList(categoryId);
+        log.info("查询完成");
+        return Result.success(dishList);
     }
 }

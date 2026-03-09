@@ -13,8 +13,12 @@ import org.springframework.stereotype.Component;
 @Data
 @ConfigurationProperties(prefix = "sky.jwt")
 public class JwtProperties {
-    // jwt签名时使用的密钥
+    // 管理端员工jwt签名时使用的密钥相关配置
     private String adminSecretKey;
     private Long adminTtl;
     private String adminTokenName;
+    // 用户端jwt令牌的相关配置信息
+    private String userSecretKey;
+    private Long userTtl;
+    private String userTokenName;
 }

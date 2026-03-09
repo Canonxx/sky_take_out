@@ -6,9 +6,13 @@ package com.hubu.mapper;/*
  */
 
 import com.hubu.entity.User;
+import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
-
+@Mapper
 public interface UserMapper {
-    List<User> findAll();
+
+    User selectByOpenId(String openId);
+
+    void insert(User user1);
 }

@@ -1,11 +1,10 @@
 package com.hubu.constant;/*
  * @Auther:long
- * @Date:2025/9/25
+ * @Date:2025/11/6
  * @Description:
  * @VERSON:1.8
  */
 
-public class JwtClaimsConstant {
+public class SessionAttributeConstant {
     public static final String EMP_ID = "empId";
-    public static final String USER_ID = "userId";
 }

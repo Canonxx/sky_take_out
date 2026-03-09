@@ -136,4 +136,27 @@ public class DishServiceImpl implements DishService {
         dishMapper.deleteBatchByIds(ids);
         dishFlavorMapper.deleteBatchByIds(ids);
     }
+
+    /**
+     * 根据分类id查询菜品
+     * @param categoryId
+     * @return
+     */
+    @Override
+    public List<Dish> queryCategroyList(Long categoryId) {
+        return dishMapper.queryByCategoryId(categoryId);
+    }
+
+    @Override
+    public List<DishVO> listWithFlavor(Dish dish) {
+        List<Dish> dishList = dishMapper.queryByCategoryId(dish.getCategoryId());
+        List<DishVO> dishVOList = dishList.stream().map(dish1 -> {
+            List<DishFlavor> dishFlavors = dishMapper.queryFlavorsById(dish1.getId().intValue());
+            DishVO dishVO = new DishVO();
+            BeanUtils.copyProperties(dish1, dishVO);
+            dishVO.setFlavors(dishFlavors);
+            return dishVO;
+        }).collect(Collectors.toList());
+        return dishVOList;
+    }
 }

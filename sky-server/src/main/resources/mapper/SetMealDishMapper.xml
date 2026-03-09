@@ -11,4 +11,26 @@
             #{id}
         </foreach>
     </select>
+<!--    void insert(SetMealDish setMealDish1);-->
+    <insert id="insert" parameterType="com.hubu.entity.SetMealDish">
+        insert into setmeal_dish(setmeal_id,dish_id,name,price,copies)
+        values (#{setmealId},#{dishId},#{name},#{price},#{copies})
+    </insert>
+<!--    List<Long> queryDishIdBySetMealId(Long id);-->
+    <select id="queryDishIdBySetMealId">
+        select dish_id
+        from setmeal_dish
+        where setmeal_id = #{id}
+    </select>
+<!--    List<SetMealDish> queryBySetMealId(Long id);-->
+    <select id="queryBySetMealId" resultType="com.hubu.entity.SetMealDish">
+        select *
+        from  setmeal_dish
+        where setmeal_id = #{id}
+    </select>
+<!--    void deleteBySetMealId(Long id);-->
+    <delete id="deleteBySetMealId">
+        delete from setmeal_dish
+        where setmeal_id = #{id}
+    </delete>
 </mapper>

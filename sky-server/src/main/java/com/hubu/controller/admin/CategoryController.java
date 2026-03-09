@@ -71,10 +71,12 @@ public class CategoryController {
 
     @GetMapping("/list")
     @Operation(description = "获取菜品分类",summary = "获取菜品分类")
-    public Result<List<CategoryPageQueryVO>> typeList(@RequestParam Integer type){
+    public Result<List<CategoryPageQueryVO>> typeList(@RequestParam Long type){
         log.info("获取分类类型{}",type);
         List<CategoryPageQueryVO> categoryPageQueryVOList = categoryService.typeList(type);
         log.info("查询成功");
         return Result.success(categoryPageQueryVOList);
+
     }
+
 }
