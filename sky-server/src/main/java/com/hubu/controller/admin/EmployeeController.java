@@ -67,6 +67,8 @@ public class EmployeeController {
 
     /**
      * 登出功能
+     * 用户退出后，要将token进行过期（将token放入redis白名单里面）
+     * 之后携带这个token访问资源时会被拦截器拦截（判断token是否在白名单里面）
      * @return
      */
     @PostMapping("/logout")
@@ -76,7 +78,7 @@ public class EmployeeController {
         // 1.获取请求头token
         String token = request.getHeader(jwtProperties.getAdminTokenName());
         // 2.加入白名单
-        if (token!=null){
+        if (token!=null){//实际上token为null时会被jwtadmin拦截器拦截，这个判断为null的目的是为了防止别人直接发起请求，而不是从后台页面发起的请求
             stringRedisTemplate.opsForValue().set(RedisKeyPrefixConstant.EXCLUDE_LIST +token,"1",jwtProperties.getAdminTtl(), TimeUnit.MILLISECONDS);
         }
         log.info("退出成功");

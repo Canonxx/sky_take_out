@@ -12,7 +12,6 @@ import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
-
 @SpringBootApplication
 @Slf4j
 @MapperScan("com.hubu.mapper")

@@ -22,10 +22,12 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import io.swagger.v3.oas.annotations.tags.Tags;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Set;
 
 @Slf4j
 @RestController
@@ -34,6 +36,8 @@ import java.util.List;
 public class DishController {
     @Autowired
     private DishService dishService;
+    @Autowired
+    private RedisTemplate redisTemplate;
     @AutoPrintLog
     @PostMapping
     @Operation(description = "新增菜品",summary = "新增菜品")
@@ -41,6 +45,8 @@ public class DishController {
     public Result<String> add(@RequestBody DishDTO dishDTO){
 //        log.info("新增菜品：{}",dishDTO);
         dishService.add(dishDTO);
+        // 删除菜品缓存
+        delDishCache("dish_"+dishDTO.getCategoryId());
         log.info("新增菜品完成");
         return Result.success();
     }
@@ -62,12 +68,14 @@ public class DishController {
         log.info("查询成功");
         return Result.success(dishVO);
     }
+    // 修改，启售停售，删除菜品可能会涉及到套餐缓存的清除所以就直接清除以key为dish_*的数据
     @PutMapping
     @Operation(description = "修改菜品",summary = "修改菜品")
     public Result<String> update(@RequestBody DishDTO dishDTO){
         log.info("修改菜品{}",dishDTO);
         dishService.update(dishDTO);
         log.info("修改成功！");
+        delDishCache("dish_*");
         return Result.success();
     }
     @PostMapping("/status/{status}")
@@ -76,14 +84,17 @@ public class DishController {
         log.info("启售或停售菜品id{},status{}",id,status);
         dishService.startOrStop(status,id);
         log.info("启售停售功能完成");
+        DishVO dishVO = dishService.query(id.intValue());
+        delDishCache("dish_*");
         return Result.success();
     }
     @DeleteMapping
-    @Operation(description = "删除菜品根据id",summary = "删除彩品")
+    @Operation(description = "删除菜品根据id",summary = "删除菜品")
     public Result<String> delete(@RequestParam List<Long> ids){
         log.info("删除菜品ids{}",ids);
         dishService.delete(ids);
         log.info("删除成功");
+        delDishCache("dish_*");
         return Result.success();
     }
 
@@ -98,5 +109,15 @@ public class DishController {
         List<Dish> dishList =  dishService.queryCategroyList(categoryId);
         log.info("查询完成");
         return Result.success(dishList);
+    }
+
+    /**
+     * 添加，修改，删除，启售停售菜品时将菜品缓存删除
+     * @param pattern
+     */
+    private void delDishCache(String pattern){
+        Set keys = redisTemplate.keys(pattern);
+        log.info("删除dish_{}菜品缓存",keys);
+        redisTemplate.delete(keys);
     }
 }

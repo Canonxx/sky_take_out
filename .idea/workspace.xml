@@ -4,61 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="22d299d3-0b3c-4848-bf57-40b37a13a0af" name="Changes" comment="用户退出功能完善">
-      <change afterPath="$PROJECT_DIR$/sky-common/src/main/java/com/hubu/constant/SessionAttributeConstant.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sky-common/src/main/java/com/hubu/exception/LoginFailedException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sky-common/src/main/java/com/hubu/exception/SessionInvalidException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sky-common/src/main/java/com/hubu/exception/StartNotAllowedException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sky-common/src/main/java/com/hubu/properties/WeChatProperties.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sky-common/src/main/java/com/hubu/utils/HttpClientUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sky-pojo/src/main/java/com/hubu/dto/SetMealDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sky-pojo/src/main/java/com/hubu/dto/SetMealPageQueryDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sky-pojo/src/main/java/com/hubu/dto/UserLoginDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sky-pojo/src/main/java/com/hubu/entity/SetMeal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sky-pojo/src/main/java/com/hubu/entity/SetMealDish.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sky-pojo/src/main/java/com/hubu/vo/DishItemVO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sky-pojo/src/main/java/com/hubu/vo/SetMealPageQueryVO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sky-pojo/src/main/java/com/hubu/vo/SetMealVO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sky-pojo/src/main/java/com/hubu/vo/UserLoginVO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/controller/admin/SetMealController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/controller/user/CategoryController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/controller/user/DishController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/controller/user/SetMealController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/controller/user/UserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/interceptor/JwtTokenUserInterceptor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/interceptor/LoginAdminInterceptor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/service/admin/SetMealService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/service/admin/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/service/admin/impl/SetMealServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/service/admin/impl/UserServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sky-server/src/main/resources/mapper/UserMapper.xml" afterDir="false" />
+    <list default="true" id="22d299d3-0b3c-4848-bf57-40b37a13a0af" name="Changes" comment="用户商品浏览功能代码开发">
+      <change afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/config/RedisConfiguration.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-common/src/main/java/com/hubu/constant/JwtClaimsConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-common/src/main/java/com/hubu/constant/JwtClaimsConstant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-common/src/main/java/com/hubu/constant/MessageConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-common/src/main/java/com/hubu/constant/MessageConstant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-common/src/main/java/com/hubu/properties/JwtProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-common/src/main/java/com/hubu/properties/JwtProperties.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-pojo/src/main/java/com/hubu/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-pojo/src/main/java/com/hubu/entity/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/SkyApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/SkyApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/aspect/AutoFillAspect.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/aspect/AutoFillAspect.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/config/WebMvcConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/config/WebMvcConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/controller/admin/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/controller/admin/CategoryController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/controller/admin/DishController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/controller/admin/DishController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/controller/admin/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/controller/admin/EmployeeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/interceptor/JwtTokenAdminInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/interceptor/JwtTokenAdminInterceptor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/mapper/CategoryMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/mapper/CategoryMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/mapper/DishMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/mapper/DishMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/mapper/SetMealDishMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/mapper/SetMealDishMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/mapper/SetMealMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/mapper/SetMealMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/mapper/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/service/admin/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/service/admin/CategoryService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/service/admin/DishService.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/service/admin/DishService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/service/admin/impl/CategoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/service/admin/impl/CategoryServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/controller/user/DishController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/controller/user/DishController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/controller/user/SetMealController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/controller/user/SetMealController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/controller/user/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/controller/user/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/service/admin/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/service/user/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/service/admin/impl/DishServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/service/admin/impl/DishServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-server/src/main/resources/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/resources/application-dev.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-server/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-server/src/main/resources/mapper/CategoryMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/resources/mapper/CategoryMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-server/src/main/resources/mapper/DishMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/resources/mapper/DishMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-server/src/main/resources/mapper/SetMealDishMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/resources/mapper/SetMealDishMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-server/src/main/resources/mapper/SetMealMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/resources/mapper/SetMealMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/service/admin/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-server/src/main/java/com/hubu/service/user/impl/UserServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -266,7 +223,7 @@
       <workItem from="1764227652803" duration="3699000" />
       <workItem from="1765963405458" duration="5188000" />
       <workItem from="1766390174276" duration="12700000" />
-      <workItem from="1772872293238" duration="36538000" />
+      <workItem from="1772872293238" duration="67673000" />
     </task>
     <task id="LOCAL-00001" summary="init:初始化项目">
       <option name="closed" value="true" />
@@ -436,7 +393,15 @@
       <option name="project" value="LOCAL" />
       <updated>1762416547319</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="用户商品浏览功能代码开发">
+      <option name="closed" value="true" />
+      <created>1773069277007</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1773069277007</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -481,7 +446,8 @@
     <MESSAGE value="完成菜品功能模块" />
     <MESSAGE value="将图片保存本地" />
     <MESSAGE value="用户退出功能完善" />
-    <option name="LAST_COMMIT_MESSAGE" value="用户退出功能完善" />
+    <MESSAGE value="用户商品浏览功能代码开发" />
+    <option name="LAST_COMMIT_MESSAGE" value="用户商品浏览功能代码开发" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

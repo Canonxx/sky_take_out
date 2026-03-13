@@ -150,13 +150,25 @@ public class DishServiceImpl implements DishService {
     @Override
     public List<DishVO> listWithFlavor(Dish dish) {
         List<Dish> dishList = dishMapper.queryByCategoryId(dish.getCategoryId());
-        List<DishVO> dishVOList = dishList.stream().map(dish1 -> {
-            List<DishFlavor> dishFlavors = dishMapper.queryFlavorsById(dish1.getId().intValue());
-            DishVO dishVO = new DishVO();
-            BeanUtils.copyProperties(dish1, dishVO);
-            dishVO.setFlavors(dishFlavors);
-            return dishVO;
-        }).collect(Collectors.toList());
-        return dishVOList;
+//        List<DishVO> dishVOList = dishList.stream().map(dish1 -> {
+//            DishVO dishVO = new DishVO();
+//            if (dish1.getStatus()==StatusConstant.ENABLE) {
+//                List<DishFlavor> dishFlavors = dishMapper.queryFlavorsById(dish1.getId().intValue());
+//                BeanUtils.copyProperties(dish1, dishVO);
+//                dishVO.setFlavors(dishFlavors);
+//            }
+//            return dishVO;
+//        }).collect(Collectors.toList());
+        List<DishVO> dishVOList1 = new ArrayList<>();
+        dishList.forEach(dish1 -> {
+            if (dish1.getStatus()==StatusConstant.ENABLE) {
+                DishVO dishVO = new DishVO();
+                List<DishFlavor> dishFlavors = dishMapper.queryFlavorsById(dish1.getId().intValue());
+                BeanUtils.copyProperties(dish1, dishVO);
+                dishVO.setFlavors(dishFlavors);
+                dishVOList1.add(dishVO);
+            }
+        });
+        return dishVOList1;
     }
 }

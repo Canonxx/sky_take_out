@@ -1,0 +1,52 @@
+package com.hubu.config;/*
+ * @Auther:long
+ * @Date:2026/3/13
+ * @Description:
+ * @VERSON:1.8
+ */
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.data.redis.connection.RedisConnectionFactory;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer;
+import org.springframework.data.redis.serializer.StringRedisSerializer;
+@Configuration
+public class RedisConfiguration {
+
+    @Bean
+    public RedisTemplate<String,Object> redisTemplate(RedisConnectionFactory connectionFactory){
+
+        RedisTemplate<String,Object> redisTemplate = new RedisTemplate<>();
+        redisTemplate.setConnectionFactory(connectionFactory);
+
+        // key序列化
+        StringRedisSerializer stringRedisSerializer = new StringRedisSerializer();
+
+        // ObjectMapper
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        // 注册 Java8 时间模块
+        objectMapper.registerModule(new JavaTimeModule());
+
+        // 不使用时间戳
+        objectMapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
+
+        // JSON序列化
+        GenericJackson2JsonRedisSerializer jsonSerializer =
+                new GenericJackson2JsonRedisSerializer(objectMapper);
+
+        redisTemplate.setKeySerializer(stringRedisSerializer);
+        redisTemplate.setValueSerializer(jsonSerializer);
+
+        redisTemplate.setHashKeySerializer(stringRedisSerializer);
+        redisTemplate.setHashValueSerializer(jsonSerializer);
+
+        redisTemplate.afterPropertiesSet();
+
+        return redisTemplate;
+    }
+}

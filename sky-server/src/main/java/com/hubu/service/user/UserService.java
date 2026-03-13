@@ -1,4 +1,4 @@
-package com.hubu.service.admin;/*
+package com.hubu.service.user;/*
  * @Auther:long
  * @Date:2026/3/8
  * @Description:

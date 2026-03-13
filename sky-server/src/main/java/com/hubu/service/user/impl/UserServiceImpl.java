@@ -1,4 +1,4 @@
-package com.hubu.service.admin.impl;/*
+package com.hubu.service.user.impl;/*
  * @Auther:long
  * @Date:2026/3/8
  * @Description:
@@ -12,17 +12,13 @@ import com.hubu.dto.UserLoginDTO;
 import com.hubu.entity.User;
 import com.hubu.exception.LoginFailedException;
 import com.hubu.mapper.UserMapper;
-import com.hubu.properties.JwtProperties;
 import com.hubu.properties.WeChatProperties;
-import com.hubu.service.admin.UserService;
+import com.hubu.service.user.UserService;
 import com.hubu.utils.HttpClientUtil;
-import com.hubu.vo.UserLoginVO;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.http.client.utils.HttpClientUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.security.auth.login.LoginException;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;

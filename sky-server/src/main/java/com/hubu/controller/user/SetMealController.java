@@ -28,10 +28,11 @@ public class SetMealController {
 
     /**
      * 条件查询
-     *
+     * 显示套餐和缓存套餐功能实现 基于注解来实现
      * @param categoryId
      * @return
      */
+
     @GetMapping("/list")
     public Result<List<SetMeal>> list(Long categoryId) {
         SetMeal setmeal = new SetMeal();
