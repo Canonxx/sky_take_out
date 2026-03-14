@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hubu.mapper.ShoppingCartMapper">
+<!--    ShoppingCart query(ShoppingCart shoppingcart);-->
+<select id="query" parameterType="com.hubu.entity.ShoppingCart" resultType="com.hubu.entity.ShoppingCart">
+    select *
+    from shopping_cart
+    <where>
+        <if test="userId != null">and user_id = #{userId}</if>
+        <if test="dishId != null">and dish_id = #{dishId}</if>
+        <if test="setmealId != null">and setmeal_id = #{setmealId}</if>
+        <if test="dishFlavor != null and dishFlavor != ''">and dish_flavor = #{dishFlavor}</if>
+    </where>
+</select>
+<!--    void update(ShoppingCart shoppingcart);-->
+    <update id="update" parameterType="com.hubu.entity.ShoppingCart">
+        update shopping_cart
+        set number = #{number},create_time = #{createTime}
+        <where>
+            <if test="userId != null">and user_id = #{userId}</if>
+            <if test="dishId != null">and dish_id = #{dishId}</if>
+            <if test="setmealId != null">and setmeal_id = #{setmealId}</if>
+            <if test="dishFlavor != null and dishFlavor != ''">and dish_flavor = #{dishFlavor}</if>
+        </where>
+    </update>
+<!--    void insert(ShoppingCart shoppingcart);-->
+    <insert id="insert" parameterType="com.hubu.entity.ShoppingCart">
+        insert into shopping_cart(name,image,user_id,dish_id,setmeal_id,dish_flavor,number,amount,create_time)
+        values (#{name},#{image},#{userId},#{dishId},#{setmealId},#{dishFlavor},#{number},#{amount},#{createTime})
+    </insert>
+<!--    void delete(ShoppingCart shoppingCart);-->
+    <delete id="delete" parameterType="com.hubu.entity.ShoppingCart">
+        delete
+        from shopping_cart
+        where user_id = #{userId}
+    </delete>
+</mapper>

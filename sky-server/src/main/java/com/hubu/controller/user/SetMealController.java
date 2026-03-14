@@ -12,6 +12,7 @@ import com.hubu.service.admin.SetMealService;
 import com.hubu.vo.DishItemVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,13 +33,17 @@ public class SetMealController {
      * @param categoryId
      * @return
      */
-
+    @Cacheable(value = "setmeal",key = "#categoryId")
+    /**
+     value是缓存名称可以有多个key，key为缓存的key 缓存里面的key为setmeal::categoryId
+    */
     @GetMapping("/list")
     public Result<List<SetMeal>> list(Long categoryId) {
         SetMeal setmeal = new SetMeal();
         setmeal.setCategoryId(categoryId);
         setmeal.setStatus(StatusConstant.ENABLE);
         List<SetMeal> list = setmealService.list(setmeal);
+        log.info("套餐数据从数据库获取");
         return Result.success(list);
     }
     /**

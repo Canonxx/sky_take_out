@@ -14,6 +14,7 @@ import com.hubu.vo.SetMealVO;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.poi.ss.formula.functions.T;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -46,6 +47,7 @@ public class SetMealController {
      * @param setMealDTO
      * @return
      */
+    @CacheEvict(value = "setmeal",key = "#setMealDTO.categoryId")
     @PostMapping()
     public Result<T> save(@RequestBody SetMealDTO setMealDTO){
         log.info("setmealdto信息为：{}",setMealDTO);
@@ -60,6 +62,7 @@ public class SetMealController {
      * @param id 根据套餐id来操作
      * @return
      */
+    @CacheEvict(value = "setmeal",allEntries = true)
     @PostMapping("/status/{status}")
     public Result startOrstop(@PathVariable Integer status,@RequestParam Long id){
         log.info("status:{},id:{}",status,id);
@@ -83,22 +86,26 @@ public class SetMealController {
 
     /**
      * 更新套餐信息功能接口
+     * 清理套餐缓存
      * @param setMealDTO
      * @return
      */
+    @CacheEvict(value = "setmeal",allEntries = true)
     @PutMapping()
     public Result update(@RequestBody SetMealDTO setMealDTO){
         log.info("更新信息为setmealdto：{}",setMealDTO);
         setMealService.update(setMealDTO);
         log.info("更新完成");
-        return null;
+        return Result.success();
     }
 
     /**
      * 删除套餐接口
+     * 清除套餐缓存
      * @param ids 套餐id集合
      * @return
      */
+    @CacheEvict(value = "setmeal",allEntries = true)
     @DeleteMapping()
     public Result<String> deleteSetMealBactch(@RequestParam List<Long> ids){
         log.info("套餐ids:{}",ids);

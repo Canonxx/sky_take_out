@@ -37,6 +37,7 @@
         <jedis.version>3.7.0</jedis.version>
         <redis.version>3.1.2</redis.version>
         <commonspool2>2.11.1</commonspool2>
+        <spring.cache>2.7.3</spring.cache>
     </properties>
 
     <!-- 统一版本管理 -->
@@ -145,6 +146,11 @@
                 <groupId>redis.clients</groupId>
                 <artifactId>jedis</artifactId>
                 <version>${jedis.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-cache</artifactId>
+                <version>${spring.cache}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
