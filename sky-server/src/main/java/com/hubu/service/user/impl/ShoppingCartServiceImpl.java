@@ -20,6 +20,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.BeanIsAbstractException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -38,6 +39,7 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
      * 添加商品至购物车
      * @param shoppingCartDTO
      */
+    @Transactional
     @Override
     public void add(ShoppingCartDTO shoppingCartDTO) {
         ShoppingCart shoppingcart = new ShoppingCart();
@@ -47,7 +49,7 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
         // 1.分析 dto数据添加的是菜品，套餐，还是带口味的菜品
         // 添加菜品到购物车
         // 判断菜品是否在购物车里
-        if (shoppingCart1!=null){
+        if (shoppingCart1!=null && shoppingCart1.size()==1){
             // 在购物车里,菜品数量+1
             shoppingcart.setNumber(shoppingCart1.get(0).getNumber()+1);
             shoppingcart.setCreateTime(LocalDateTime.now());
@@ -74,8 +76,6 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
                 shoppingCartMapper.insert(shoppingcart);
             }
         }
-
-
     }
 
     /**
@@ -95,6 +95,7 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
      * 删除购物车里面的商品
      * @param shoppingCartDTO
      */
+    @Transactional
     @Override
     public void sub(ShoppingCartDTO shoppingCartDTO) {
         ShoppingCart shoppingCart = new ShoppingCart();
@@ -109,6 +110,7 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
     /**
      * 清空购物车
      */
+    @Transactional
     @Override
     public void delete() {
         ShoppingCart shoppingCart = new ShoppingCart();
