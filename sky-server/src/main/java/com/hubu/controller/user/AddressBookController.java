@@ -102,4 +102,15 @@ public class AddressBookController {
         addressBookService.deleteById(id);
         return Result.success();
     }
+    /**
+     * 根据用户id查询默认地址
+     *
+     */
+    @GetMapping("/default")
+    @Operation(summary = "根据用户id查询默认地址")
+    public Result<AddressBook> getDefault() {
+        log.info("根据用户id查询默认地址");
+        AddressBook addressBook = addressBookService.getDefault();
+        return Result.success(addressBook);
+    }
 }

@@ -77,4 +77,15 @@ public class AddressBookServiceImpl implements AddressBookService {
     public void deleteById(Long id) {
         addressBookMapper.deleteById(id);
     }
+
+    @Override
+    public AddressBook getDefault() {
+        Long userId = BaseContext.getCurrentId();
+        AddressBook addressBook = addressBookMapper.getDefault(userId);
+        if (addressBook != null) {
+            return addressBook;
+        } else {
+            return null;
+        }
+    }
 }

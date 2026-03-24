@@ -25,4 +25,6 @@ public interface AddressBookMapper {
     void update(AddressBook addressBook);
 
     void deleteById(Long id);
+
+    AddressBook getDefault(Long userId);
 }

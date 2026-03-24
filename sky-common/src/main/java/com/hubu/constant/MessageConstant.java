@@ -8,6 +8,7 @@ package com.hubu.constant;/*
 public final class MessageConstant {
 
 
+    public static final String SHOPPING_CART_IS_NULL = "购物车为空";
 
     private MessageConstant(){}
     public static final String ACCOUNT_NOT_FOUND = "账户不存在";
@@ -23,5 +24,5 @@ public final class MessageConstant {
     public static final String START_NOT_ALLOWED = "不允许启售，其关联的菜品为禁售";
     public static final String SETMEAL_ON_SALE = "套餐在售，不能删除";
     public static final String LOGIN_FAILED = "登陆异常";
-
+    public static final String ADDRESS_BOOK_IS_NULL = "地址簿为空";
 }
